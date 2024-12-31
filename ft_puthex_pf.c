@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_puthex_pf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 17:29:49 by ien-niou          #+#    #+#             */
-/*   Updated: 2024/12/28 18:48:59 by ien-niou         ###   ########.fr       */
+/*   Created: 2024/11/13 14:48:11 by ien-niou          #+#    #+#             */
+/*   Updated: 2024/11/14 10:18:19 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int ac, char **av)
+#include "ft_printf.h"
+
+void	ft_putnbr_hex_pf(unsigned long num, size_t *counter, int base)
 {
-	if (ac == 1 || (ac == 2 && av[1][0] == '\0'))
+	char	*hex_digits;
+
+	if (base)
 	{
-		return (0);
+		hex_digits = HEX_LOW_BASE;
 	}
-    
-	return (0);
+	else
+		hex_digits = HEX_UPP_BASE;
+	if (num >= 16)
+	{
+		ft_putnbr_hex_pf(num / 16, counter, base);
+		ft_putnbr_hex_pf(num % 16, counter, base);
+	}
+	else
+	{
+		ft_putchar_pf(hex_digits[num], counter);
+	}
 }

@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 10:28:20 by ien-niou          #+#    #+#             */
-/*   Updated: 2024/12/30 17:07:45 by ien-niou         ###   ########.fr       */
+/*   Created: 2024/11/13 14:48:29 by ien-niou          #+#    #+#             */
+/*   Updated: 2024/11/13 14:51:00 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
+#include "ft_printf.h"
 
-
-typedef struct s_stack
+void	ft_putchar_pf(char c, size_t *counter)
 {
-    int content;
-    int index;
-    struct s_stack *next;
-}t_stack;
-
-char	**split(char *s);
-t_stack *create_node(int content);
-int if_allready(t_stack *stack) ;
-void	ft_lstadd_back(t_stack **lst, t_stack *new);
-
-#endif
+	write(1, &c, 1);
+	(*counter)++;
+}

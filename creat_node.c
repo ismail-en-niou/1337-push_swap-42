@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   creat_node.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 10:28:20 by ien-niou          #+#    #+#             */
-/*   Updated: 2024/12/30 17:07:45 by ien-niou         ###   ########.fr       */
+/*   Created: 2024/12/30 12:15:59 by ien-niou          #+#    #+#             */
+/*   Updated: 2024/12/30 16:25:53 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
+#include "push_swap.h"
 
-
-typedef struct s_stack
+t_stack *create_node(int content)
 {
-    int content;
-    int index;
-    struct s_stack *next;
-}t_stack;
-
-char	**split(char *s);
-t_stack *create_node(int content);
-int if_allready(t_stack *stack) ;
-void	ft_lstadd_back(t_stack **lst, t_stack *new);
-
-#endif
+    t_stack *new_node = (t_stack *)malloc(sizeof(t_stack));
+    if (!new_node)
+        return NULL;
+    new_node->content = content;
+    new_node->index = 0;
+    new_node->next = NULL;
+    return new_node;
+}

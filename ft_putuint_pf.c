@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putuint_pf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 10:28:20 by ien-niou          #+#    #+#             */
-/*   Updated: 2024/12/30 17:07:45 by ien-niou         ###   ########.fr       */
+/*   Created: 2024/11/13 15:04:59 by ien-niou          #+#    #+#             */
+/*   Updated: 2024/11/13 15:11:54 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
+#include "ft_printf.h"
 
-
-typedef struct s_stack
+void	ft_putuint(unsigned int num, size_t *counter)
 {
-    int content;
-    int index;
-    struct s_stack *next;
-}t_stack;
-
-char	**split(char *s);
-t_stack *create_node(int content);
-int if_allready(t_stack *stack) ;
-void	ft_lstadd_back(t_stack **lst, t_stack *new);
-
-#endif
+	if (num > 9)
+		ft_putuint((num / 10), counter);
+	ft_putchar_pf(('0' + num % 10), counter);
+}

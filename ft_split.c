@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split.c                                            :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 17:49:45 by ien-niou          #+#    #+#             */
-/*   Updated: 2024/12/28 18:41:43 by ien-niou         ###   ########.fr       */
+/*   Created: 2024/11/07 10:11:25 by ien-niou          #+#    #+#             */
+/*   Updated: 2024/12/30 16:13:26 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	is_space(char c)
-{
-	return (c == ' ' || (c >= 9 && c <= 13));
-}
 
 static void	*ft_free(char **res, int j)
 {
@@ -47,32 +42,28 @@ static char	*ft_strcpy_w(char const *src, char sep)
 	return (word);
 }
 
-int	count_word(char *str)
+static int	count_word(char const *str, char sep)
 {
-	int	i;
 	int	count;
+	int	i;
 
-	i = 0;
 	count = 0;
+	i = 0;
 	if (!str)
 		return (0);
-	while (is_space(str[i]))
-		i++;
 	while (str[i])
 	{
-		if (!is_space(str[i]))
-		{
+		while (str[i] && str[i] == sep)
+			i++;
+		if (str[i])
 			count++;
-			while (str[i] && !is_space(str[i]))
-				i++;
-		}
-		else
+		while (str[i] && str[i] != sep)
 			i++;
 	}
 	return (count);
 }
 
-char	**split(char *s)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		j;
@@ -80,19 +71,19 @@ char	**split(char *s)
 
 	i = 0;
 	j = 0;
-	res = malloc((count_word(s) + 1) * sizeof(char *));
+	res = malloc((count_word(s, c) + 1) * sizeof(char *));
 	if (!s || !(res))
 		return (NULL);
 	while (s[i])
 	{
-		while (s[i] && s[i] == ' ')
+		while (s[i] && s[i] == c)
 			i++;
 		if (s[i])
 		{
-			res[j] = ft_strcpy_w(&s[i], ' ');
+			res[j] = ft_strcpy_w(&s[i], c);
 			if (!res[j++])
 				return (ft_free(res, j - 1));
-			while (s[i] && s[i] != ' ')
+			while (s[i] && s[i] != c)
 				i++;
 		}
 	}
