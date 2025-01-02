@@ -6,13 +6,13 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:56:14 by ien-niou          #+#    #+#             */
-/*   Updated: 2024/12/30 16:14:02 by ien-niou         ###   ########.fr       */
+/*   Updated: 2024/12/31 13:59:08 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
-
-int	ft_atoi(const char *str)
+size_t	ft_atoi(char *str)
 {
 	int					i;
 	unsigned long long	result;
