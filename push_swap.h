@@ -6,7 +6,7 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 10:28:20 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/02 17:49:48 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/03 15:34:56 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ size_t				ft_atoi(char *str);
 // list
 t_stack				*create_node(int content);
 t_stack				*create_node(int value);
+void				ft_swap_if_needed(t_stack **b);
 void				ft_print_list(t_stack *s);
 int					if_allready(t_stack *stack);
 void				ft_lstadd_back(t_stack **lst, t_stack *new);
@@ -65,5 +66,6 @@ void				_revrotate(t_stack **head, char *msg);
 
 // sort
 void				sort(t_stack **a, t_stack **b);
+void				ft_list_handeler(t_stack **a, t_stack **b);
 
 #endif
