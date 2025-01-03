@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 #include "push_swap.h"
 
 void free_res_and_stack(char **res, t_stack **a)
