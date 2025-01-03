@@ -10,38 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/01 11:33:53 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/03 10:52:59 by ien-niou         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../push_swap.h"
 
-t_stack	*ft_lstmax(t_stack *lst)
+t_stack *ft_lstmax(t_stack *lst)
 {
-	t_stack	*max;
+    t_stack *max;
 
-	if (!lst)
-		return (NULL);
-	max = create_node(lst->content);
-	while (lst)
-	{
-		if (max->content < lst->content)
-		{
-			free(max);
-			max = create_node(lst->content);
-		}
-		lst = lst->next;
-	}
-	return (max);
+    if (!lst)
+        return (NULL);
+    max = lst;
+    while (lst)
+    {
+        if (max->content < lst->content)
+        {
+            max = lst;
+        }
+        lst = lst->next;
+    }
+    return (max);
 }
+
 
 int	find_min_index(t_stack *lst)
 {
@@ -70,7 +58,6 @@ void	ft_list3(t_stack **a)
 		_revrotate(a, "rra");
 	if ((*a)->content > (*a)->next->content)
 		_swap(a, "sa");
-	free(max);
 }
 
 void	push_min_to_b(t_stack **a, t_stack **b, int times)

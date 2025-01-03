@@ -19,6 +19,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+#define THRESHOLD_FACTOR 0.045
+#define THRESHOLD_OFFSET 10
+
 typedef struct s_stack
 {
 	int				content;

@@ -14,9 +14,9 @@
 #include "libft/libft.h"
 #include "push_swap.h"
 
-void	free_res_and_stack(char **res, t_stack **a)
+void free_res_and_stack(char **res, t_stack **a)
 {
-	int	j;
+	int j;
 
 	j = 0;
 	while (res[j])
@@ -28,10 +28,10 @@ void	free_res_and_stack(char **res, t_stack **a)
 	free_stack(a);
 }
 
-int	process_value(t_stack **a, char **res, int j)
+int process_value(t_stack **a, char **res, int j)
 {
-	long	nb;
-	t_stack	*new_node;
+	long nb;
+	t_stack *new_node;
 
 	nb = ft_atoi(res[j]);
 	if (!is_number(res[j]) || (nb) > INT_MAX || nb < INT_MIN)
@@ -43,11 +43,12 @@ int	process_value(t_stack **a, char **res, int j)
 	return (1);
 }
 
-int	process_input(t_stack **a, char **av, int ac)
+int process_input(t_stack **a, char **av, int ac)
 {
-	int		i;
-	int		j;
-	char	**res;
+	int i;
+	int j;
+	char **res;
+	int k ;
 
 	i = 1;
 	while (i < ac)
@@ -64,12 +65,15 @@ int	process_input(t_stack **a, char **av, int ac)
 				return (0);
 			}
 		}
+		k =0 ;
+		while ( res[k] != NULL)
+			free(res[k++]);
 		free(res);
 	}
 	return (1);
 }
 
-int	validate_input(t_stack **a, char **av, int ac)
+int validate_input(t_stack **a, char **av, int ac)
 {
 	if (!process_input(a, av, ac) || if_allready(*a))
 	{
@@ -79,10 +83,10 @@ int	validate_input(t_stack **a, char **av, int ac)
 	return (!is_sorted(*a));
 }
 
-int	main(int ac, char *av[])
+int main(int ac, char *av[])
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack *a;
+	t_stack *b;
 
 	a = NULL;
 	b = NULL;
@@ -91,7 +95,6 @@ int	main(int ac, char *av[])
 	if (!validate_input(&a, av, ac) || is_sorted(a))
 		return (0);
 	edit_index(a);
-	ft_print_list(a);
 	sort(&a, &b);
 	free_stack(&a);
 	return (0);

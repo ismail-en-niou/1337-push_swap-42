@@ -32,7 +32,7 @@ static char	*ft_strcpy_w(char const *src, char sep)
 		len++;
 	word = malloc(len + 1);
 	if (!word)
-		return (NULL);
+		return (free(word),NULL);
 	while (i < len)
 	{
 		word[i] = src[i];
