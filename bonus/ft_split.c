@@ -6,11 +6,11 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:11:25 by ien-niou          #+#    #+#             */
-/*   Updated: 2024/12/30 16:13:26 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/04 11:55:10 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 static void	*ft_free(char **res, int j)
 {

@@ -6,30 +6,11 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 11:33:53 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/03 15:55:49 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/04 10:30:34 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-t_stack *ft_lstmax(t_stack *lst)
-{
-    t_stack *max;
-
-    if (!lst)
-        return (NULL);
-    max = lst;
-    while (lst)
-    {
-        if (max->content < lst->content)
-        {
-            max = lst;
-        }
-        lst = lst->next;
-    }
-    return (max);
-}
-
 
 int	find_min_index(t_stack *lst)
 {
@@ -62,9 +43,11 @@ void	ft_list3(t_stack **a)
 
 void	push_min_to_b(t_stack **a, t_stack **b, int times)
 {
+	int	min_index;
+
 	while (times--)
 	{
-		int	min_index = find_min_index(*a);
+		min_index = find_min_index(*a);
 		while ((*a)->index != min_index)
 			_rotat(a, "ra");
 		_push(b, a, "pb");
@@ -84,7 +67,6 @@ void	ft_list4_5(t_stack **a, t_stack **b)
 	while (*b)
 		_push(a, b, "pa");
 }
-
 
 void	sort(t_stack **a, t_stack **b)
 {

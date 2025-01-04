@@ -6,11 +6,11 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 13:11:18 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/02 17:34:27 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/04 12:39:28 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker.h"
 
 t_stack	*secondlast(t_stack *head)
 {
@@ -33,7 +33,7 @@ void	_revrotate(t_stack **head, char *msg)
 	tmp2->next = NULL;
 	tmp->next = *head;
 	*head = tmp;
-	ft_printf("%s\n", msg);
+	ft_printf("%s", msg);
 }
 
 void	_rr(t_stack **a, t_stack **b, bool isrev, char *msg)
@@ -42,10 +42,10 @@ void	_rr(t_stack **a, t_stack **b, bool isrev, char *msg)
 	{
 		_revrotate(a, "");
 		_revrotate(b, "");
-		ft_printf("%s\n", msg);
+		ft_printf("%s", msg);
 		return ;
 	}
 	_rotat(a, "");
 	_rotat(b, "");
-	ft_printf("%s\n", msg);
+	ft_printf("%s", msg);
 }

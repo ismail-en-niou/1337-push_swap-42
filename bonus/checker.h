@@ -1,22 +1,14 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 10:28:20 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/04 11:44:38 by ien-niou         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#ifndef CHECKER_H
+# define CHECKER_H
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "ft_printf.h"
+# include "../ft_printf.h"
 # include <limits.h>
 # include <stdbool.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "get_next_line.h"
+
 
 typedef struct s_stack
 {
@@ -25,12 +17,9 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-typedef struct sort_list
-{
-	int				min_range;
-	int				max_range;
-	int				iter;
-}					t_sort;
+
+void	check_str( t_stack **a, t_stack **b, char *str);
+int     ft_strncmp(const char *s1, const char *s2, size_t n);
 int					process_value(t_stack **a, char **res, int j);
 int					process_input(t_stack **a, char **av, int ac);
 char				**ft_split(char const *s, char c);
@@ -59,7 +48,7 @@ void				ft_print_list(t_stack *s);
 void				_swap(t_stack **head, char *msg);
 void				_push(t_stack **head_a, t_stack **head_b, char *msg);
 void				_rotat(t_stack **head, char *msg);
-void				_ss(t_stack **a, t_stack **b);
+void	_ss(t_stack **a, t_stack **b ,char *msg);
 void				_rr(t_stack **a, t_stack **b, bool isrev, char *msg);
 void				_revrotate(t_stack **head, char *msg);
 

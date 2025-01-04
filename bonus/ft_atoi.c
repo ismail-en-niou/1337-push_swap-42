@@ -6,11 +6,11 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 14:56:14 by ien-niou          #+#    #+#             */
-/*   Updated: 2024/12/31 13:59:08 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/04 11:55:24 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 size_t	ft_atoi(char *str)
 {

@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 17:17:54 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/04 09:33:54 by ien-niou         ###   ########.fr       */
+/*   Created: 2024/10/29 10:05:40 by ien-niou          #+#    #+#             */
+/*   Updated: 2025/01/04 11:55:54 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	ft_lstadd_front(t_stack **lst, t_stack *new)
+int	ft_lstsize(t_stack *lst)
 {
-	if (new && lst)
+	int	i;
+
+	i = 0;
+	while (lst)
 	{
-		new->next = *lst;
-		*lst = new;
+		lst = lst->next;
+		i++;
 	}
-	else
-		return ;
+	return (i);
 }

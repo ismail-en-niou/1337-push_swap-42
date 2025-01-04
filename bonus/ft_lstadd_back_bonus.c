@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 17:17:54 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/04 09:33:54 by ien-niou         ###   ########.fr       */
+/*   Created: 2024/11/01 15:49:21 by ien-niou          #+#    #+#             */
+/*   Updated: 2025/01/04 11:54:24 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	ft_lstadd_front(t_stack **lst, t_stack *new)
+t_stack	*ft_lstlast(t_stack *lst)
 {
-	if (new && lst)
-	{
-		new->next = *lst;
-		*lst = new;
-	}
-	else
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
+}
+
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
+{
+	if (!lst || !new)
 		return ;
+	if (*lst)
+		ft_lstlast(*lst)->next = new;
+	else
+		*lst = new;
 }

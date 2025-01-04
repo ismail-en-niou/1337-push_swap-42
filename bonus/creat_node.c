@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   creat_node.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 17:17:54 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/04 09:33:54 by ien-niou         ###   ########.fr       */
+/*   Created: 2024/12/30 12:15:59 by ien-niou          #+#    #+#             */
+/*   Updated: 2025/01/04 11:52:29 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	ft_lstadd_front(t_stack **lst, t_stack *new)
+t_stack	*create_node(int content)
 {
-	if (new && lst)
-	{
-		new->next = *lst;
-		*lst = new;
-	}
-	else
-		return ;
+	t_stack	*new_node;
+
+	new_node = (t_stack *)malloc(sizeof(t_stack));
+	if (!new_node)
+		return (NULL);
+	new_node->content = content;
+	new_node->index = 0;
+	new_node->next = NULL;
+	return (new_node);
 }

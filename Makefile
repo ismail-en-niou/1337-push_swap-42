@@ -6,7 +6,7 @@
 #    By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/02 17:26:52 by ien-niou          #+#    #+#              #
-#    Updated: 2025/01/03 10:44:11 by ien-niou         ###   ########.fr        #
+#    Updated: 2025/01/04 13:10:00 by ien-niou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,39 +23,55 @@ RED = \033[0;31m
 CYAN = \033[0;36m
 RESET = \033[0m
 
+# Bonus flag
+BONUS_BUILT = .b
 
 SRC = creat_node.c ft_lstadd_back_bonus.c ft_putchar.c ft_putnbr_pf.c ft_putstr_pf.c \
       ft_split.c ft_atoi.c ft_printf.c ft_puthex_pf.c ft_putptr_pf.c ft_putuint_pf.c \
       ft_isallready.c ./moves/ft_moves.c ft_lstadd_front_bonus.c ./moves/ft_moves1.c \
-	  ft_lstsize_bonus.c logic.c ./sorts/sort.c helpers.c ./sorts/sort2.c
+      ft_lstsize_bonus.c logic.c ./sorts/sort.c helpers.c ./sorts/sort2.c
 
 OBJS = $(SRC:.c=.o)
 SW = push_swap.c
-
 
 all: push_swap
 
 $(NAME): $(OBJS)
 	@$(AR) $(NAME) $(OBJS)
 
-push_swap: $(NAME)
+push_swap: $(NAME) $(SW)
 	@$(CC) $(FLAGS) $(SW) $(NAME) -o push_swap
 	@echo "$(GREEN)Compilation successful!$(RESET)"
-
 
 %.o: %.c ft_printf.h push_swap.h
 	@$(CC) $(FLAGS) -c $< -o $@
 
+bonus:
+	@if [ -f $(BONUS_BUILT) ]; then \
+		$(MAKE) -C bonus; \
+		mkdir -p $(BONUS_BUILT); \
+		echo "$(CYAN)Bonus compilation complete!$(RESET)"; \
+		mv ./bonus/checker .; \
+	else \
+		echo "$(YELLOW)Bonus not built, skipping...$(RESET)"; \
+	fi
+
 clean:
 	@echo "$(YELLOW)Object files removed.$(RESET)"
-	@$(RM) $(OBJS)
+	@$(RM) -rf $(OBJS) checker 
+	@if [ -d "bonus" ]; then \
+		$(MAKE) -C bonus clean; \
+	fi
 
 fclean: clean
 	@echo "$(RED)All files cleaned.$(RESET)"
 	@$(RM) $(NAME)
 	@$(RM) push_swap
+	@if [ -d "bonus" ]; then \
+		$(MAKE) -C bonus fclean; \
+	fi
 
 re: fclean all
 	@echo "$(CYAN)Rebuilt everything.$(RESET)"
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

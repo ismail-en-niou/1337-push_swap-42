@@ -6,11 +6,11 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 09:45:53 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/04 10:42:21 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/04 12:15:28 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker.h"
 
 void	_swap(t_stack **head, char *msg)
 {
@@ -22,7 +22,7 @@ void	_swap(t_stack **head, char *msg)
 	*head = (*head)->next;
 	tmp->next = (*head)->next;
 	(*head)->next = tmp;
-	ft_printf("%s\n", msg);
+	ft_printf("%s", msg);
 }
 
 void	_push(t_stack **head_a, t_stack **head_b, char *msg)
@@ -35,7 +35,7 @@ void	_push(t_stack **head_a, t_stack **head_b, char *msg)
 	*head_b = (*head_b)->next;
 	tmp->next = NULL;
 	ft_lstadd_front(head_a, tmp);
-	ft_printf("%s\n", msg);
+	ft_printf("%s", msg);
 }
 
 void	_rotat(t_stack **head, char *msg)
@@ -48,12 +48,12 @@ void	_rotat(t_stack **head, char *msg)
 	*head = (*head)->next;
 	tmp->next = NULL;
 	ft_lstlast(*head)->next = tmp;
-	ft_printf("%s\n", msg);
+	ft_printf("%s", msg);
 }
 
-void	_ss(t_stack **a, t_stack **b)
+void	_ss(t_stack **a, t_stack **b ,char *msg)
 {
 	_swap(a, "");
 	_swap(b, "");
-	ft_printf("ss");
+	ft_printf("%s",msg);
 }

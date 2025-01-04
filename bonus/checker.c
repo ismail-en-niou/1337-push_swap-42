@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 17:29:49 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/04 11:07:54 by ien-niou         ###   ########.fr       */
+/*   Created: 2025/01/04 11:19:58 by ien-niou          #+#    #+#             */
+/*   Updated: 2025/01/04 13:04:03 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "push_swap.h"
+#include "checker.h"
 
 void	free_res_and_stack(char **res, t_stack **a)
 {
@@ -78,11 +77,12 @@ int	validate_input(t_stack **a, char **av, int ac)
 		ft_printf("Error\n");
 		return (0);
 	}
-	return (!is_sorted(*a));
+	return (1);
 }
 
-int	main(int ac, char *av[])
+int	main(int ac , char *av[])
 {
+	char	*line = NULL;
 	t_stack	*a;
 	t_stack	*b;
 
@@ -90,10 +90,21 @@ int	main(int ac, char *av[])
 	b = NULL;
 	if (ac <= 1 || (ac == 2 && av[1][0] == '\0'))
 		return (0);
-	if (!validate_input(&a, av, ac) || is_sorted(a))
+	if (!validate_input(&a, av, ac) )
 		return (0);
-	edit_index(a);
-	sort(&a, &b);
+	while (1)
+	{
+		line = get_next_line(0);
+		if (!line)
+			break;
+		check_str(&a,&b,line);
+		free(line);
+	}
+	free(line);
+	if ( !ft_lstsize(b) && is_sorted(a))
+			ft_printf("OK\n");
+	else 
+		ft_printf("KO\n");
 	free_stack(&a);	
 	return (0);
 }
