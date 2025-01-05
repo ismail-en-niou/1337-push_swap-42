@@ -45,7 +45,7 @@ checker: $(NAME)
 	@$(CC) $(FLAGS) $(SW) $(NAME) -o checker
 
 
-%.o: %.c checker.h get_next_line.h 
+%.o: %.c checker_bonus.h get_next_line_bonus.h 
 	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
