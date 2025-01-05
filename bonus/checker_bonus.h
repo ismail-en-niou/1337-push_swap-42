@@ -7,7 +7,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "get_next_line.h"
+# include "get_next_line_bonus.h"
 
 
 typedef struct s_stack
@@ -25,6 +25,7 @@ int					process_input(t_stack **a, char **av, int ac);
 char				**ft_split(char const *s, char c);
 void				edit_index(t_stack *s);
 int					is_number(char *str);
+int is_empty_or_whitespace(char **str , int ac);
 // free
 void				free_stack(t_stack **stack);
 size_t				ft_atoi(char *str);

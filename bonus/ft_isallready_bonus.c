@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_isallready_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/04 11:23:57 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/04 11:38:00 by ien-niou         ###   ########.fr       */
+/*   Created: 2024/12/30 16:40:25 by ien-niou          #+#    #+#             */
+/*   Updated: 2025/01/05 16:39:25 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	if_allready(t_stack *stack)
 {
-	size_t	i;
+	t_stack	*current;
+	t_stack	*runner;
 
-	i = 0;
-	while (i < n && s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	if (i == n)
-		return (0);
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	current = stack;
+	while (current)
+	{
+		runner = current->next;
+		while (runner)
+		{
+			if (current->content == runner->content)
+			{
+				return (1);
+			}
+			runner = runner->next;
+		}
+		current = current->next;
+	}
+	return (0);
 }

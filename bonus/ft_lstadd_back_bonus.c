@@ -6,11 +6,11 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 15:49:21 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/04 11:54:24 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/05 16:39:29 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 t_stack	*ft_lstlast(t_stack *lst)
 {

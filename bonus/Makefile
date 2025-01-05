@@ -6,13 +6,13 @@
 #    By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/04 11:28:25 by ien-niou          #+#    #+#              #
-#    Updated: 2025/01/04 13:19:58 by ien-niou         ###   ########.fr        #
+#    Updated: 2025/01/05 16:43:21 by ien-niou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = checker.a
-CC = gcc
+CC = cc
 FLAGS = -Wall -Werror -Wextra
 RM = rm -rf
 AR = ar crs
@@ -25,15 +25,15 @@ CYAN = \033[0;36m
 RESET = \033[0m
 
 
-SRC =	checker.c get_next_line.c get_next_line_utils.c  is_sorted.c \
-		ft_strncmp.c creat_node.c \
-		creat_node.c ft_lstadd_back_bonus.c ft_putchar.c ft_putnbr_pf.c ft_putstr_pf.c \
-      ft_split.c ft_atoi.c ft_printf.c ft_puthex_pf.c ft_putptr_pf.c ft_putuint_pf.c \
-      ft_isallready.c  ft_lstadd_front_bonus.c ./moves/ft_moves.c  ./moves/ft_moves1.c \
-	  ft_lstsize_bonus.c logic.c  helpers.c test.c
+SRC =	checker_bonus.c get_next_line_bonus.c get_next_line_utils_bonus.c  is_sorted_bonus.c \
+		ft_strncmp_bonus.c creat_node_bonus.c \
+		creat_node_bonus.c ft_lstadd_back_bonus.c ft_putchar_bonus.c ft_putnbr_pf_bonus.c ft_putstr_pf_bonus.c \
+      ft_split_bonus.c ft_atoi_bonus.c ft_printf_bonus.c ft_puthex_pf_bonus.c ft_putptr_pf_bonus.c ft_putuint_pf_bonus.c \
+      ft_isallready_bonus.c  ft_lstadd_front_bonus.c ./moves/ft_moves_bonus.c  ./moves/ft_moves1_bonus.c \
+	  ft_lstsize_bonus.c logic_bonus.c  helpers_bonus.c test_bonus.c
 
 OBJS = $(SRC:.c=.o)
-SW = checker.c
+SW = checker_bonus.c
 
 
 all: checker
@@ -43,23 +43,19 @@ $(NAME): $(OBJS)
 
 checker: $(NAME)
 	@$(CC) $(FLAGS) $(SW) $(NAME) -o checker
-	@echo "$(GREEN)Compilation successful!$(RESET)"
 
 
 %.o: %.c checker.h get_next_line.h 
 	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	@echo "$(YELLOW)Object files removed.$(RESET)"
 	@$(RM) $(OBJS)
 
 fclean: clean
-	@echo "$(RED)All files cleaned.$(RESET)"
 	@$(RM) $(NAME)
 	@$(RM) checker
 
 re: fclean all
-	@echo "$(CYAN)Rebuilt everything.$(RESET)"
 
 .PHONY: all clean fclean re
 

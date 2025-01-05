@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = swap.a
-CC = gcc
+CC = cc
 FLAGS = -Wall -Werror -Wextra
 RM = rm -rf
 AR = ar crs
@@ -23,8 +23,6 @@ RED = \033[0;31m
 CYAN = \033[0;36m
 RESET = \033[0m
 
-# Bonus flag
-BONUS_BUILT = .b
 
 SRC = creat_node.c ft_lstadd_back_bonus.c ft_putchar.c ft_putnbr_pf.c ft_putstr_pf.c \
       ft_split.c ft_atoi.c ft_printf.c ft_puthex_pf.c ft_putptr_pf.c ft_putuint_pf.c \
@@ -33,6 +31,7 @@ SRC = creat_node.c ft_lstadd_back_bonus.c ft_putchar.c ft_putnbr_pf.c ft_putstr_
 
 OBJS = $(SRC:.c=.o)
 SW = push_swap.c
+BONUS_FLAG = .bonus
 
 all: push_swap
 
@@ -46,10 +45,12 @@ push_swap: $(NAME) $(SW)
 %.o: %.c ft_printf.h push_swap.h
 	@$(CC) $(FLAGS) -c $< -o $@
 
-bonus:
-	@if [ -f $(BONUS_BUILT) ]; then \
+bonus: $(BONUS_FLAG)
+
+$(BONUS_FLAG): 
+	@if [ ! -f $(BONUS_FLAG) ]; then \
 		$(MAKE) -C bonus; \
-		mkdir -p $(BONUS_BUILT); \
+		mkdir $(BONUS_FLAG); \
 		echo "$(CYAN)Bonus compilation complete!$(RESET)"; \
 		mv ./bonus/checker .; \
 	else \
@@ -58,7 +59,7 @@ bonus:
 
 clean:
 	@echo "$(YELLOW)Object files removed.$(RESET)"
-	@$(RM) -rf $(OBJS) checker 
+	@$(RM) -rf $(OBJS) $(BONUS_FLAG)
 	@if [ -d "bonus" ]; then \
 		$(MAKE) -C bonus clean; \
 	fi
@@ -66,7 +67,7 @@ clean:
 fclean: clean
 	@echo "$(RED)All files cleaned.$(RESET)"
 	@$(RM) $(NAME)
-	@$(RM) push_swap
+	@$(RM) push_swap checker
 	@if [ -d "bonus" ]; then \
 		$(MAKE) -C bonus fclean; \
 	fi

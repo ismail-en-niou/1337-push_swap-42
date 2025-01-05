@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   creat_node.c                                       :+:      :+:    :+:   */
+/*   ft_puthex_pf_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 12:15:59 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/04 11:52:29 by ien-niou         ###   ########.fr       */
+/*   Created: 2024/11/13 14:48:11 by ien-niou          #+#    #+#             */
+/*   Updated: 2025/01/05 16:40:14 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "ft_printf_bonus.h"
 
-t_stack	*create_node(int content)
+void	ft_putnbr_hex_pf(unsigned long num, size_t *counter, int base)
 {
-	t_stack	*new_node;
+	char	*hex_digits;
 
-	new_node = (t_stack *)malloc(sizeof(t_stack));
-	if (!new_node)
-		return (NULL);
-	new_node->content = content;
-	new_node->index = 0;
-	new_node->next = NULL;
-	return (new_node);
+	if (base)
+	{
+		hex_digits = HEX_LOW_BASE;
+	}
+	else
+		hex_digits = HEX_UPP_BASE;
+	if (num >= 16)
+	{
+		ft_putnbr_hex_pf(num / 16, counter, base);
+		ft_putnbr_hex_pf(num % 16, counter, base);
+	}
+	else
+	{
+		ft_putchar_pf(hex_digits[num], counter);
+	}
 }

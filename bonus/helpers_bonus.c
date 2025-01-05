@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpers.c                                          :+:      :+:    :+:   */
+/*   helpers_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 17:17:30 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/04 11:57:18 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/05 16:41:11 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	edit_index(t_stack *s)
 {
@@ -63,4 +63,22 @@ void	free_stack(t_stack **stack)
 		*stack = (*stack)->next;
 		free(temp);
 	}
+}
+
+int is_empty_or_whitespace(char **str , int ac)
+{
+	int i;
+	int j;
+	
+	i = 0;
+    while (i < ac)
+	{
+		j = 0;
+		while (str[i][j])
+		{
+			if ((str[i][j] >= 9 && str[i][j] <= 13) || str[i][j] == 32 )
+				return (0);
+		}
+	}
+    return (1);
 }

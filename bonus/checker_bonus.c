@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 11:19:58 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/04 13:04:03 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/05 16:39:04 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	free_res_and_stack(char **res, t_stack **a)
 {
@@ -31,6 +31,8 @@ int	process_value(t_stack **a, char **res, int j)
 	long	nb;
 	t_stack	*new_node;
 
+	if (((res[j][0] == '-' || res[j][0]  == '+' ) && !res[j][1]))
+		return 0;
 	nb = ft_atoi(res[j]);
 	if (!is_number(res[j]) || (nb) > INT_MAX || nb < INT_MIN)
 		return (0);
@@ -85,7 +87,6 @@ int	main(int ac , char *av[])
 	char	*line = NULL;
 	t_stack	*a;
 	t_stack	*b;
-
 	a = NULL;
 	b = NULL;
 	if (ac <= 1 || (ac == 2 && av[1][0] == '\0'))
@@ -104,7 +105,7 @@ int	main(int ac , char *av[])
 	if ( !ft_lstsize(b) && is_sorted(a))
 			ft_printf("OK\n");
 	else 
-		ft_printf("KO\n");
+		ft_printf("KO\n");	
 	free_stack(&a);	
 	return (0);
 }

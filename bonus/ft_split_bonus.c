@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:11:25 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/04 11:55:10 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/05 16:40:47 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 static void	*ft_free(char **res, int j)
 {
@@ -68,10 +68,12 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 	char	**res;
+	int		count;
 
-	i = 0;
-	j = 0;
-	res = malloc((count_word(s, c) + 1) * sizeof(char *));
+	i = ((j = 0, count = count_word(s, c)), 0);
+	if (!count)
+		return (NULL);
+	res = malloc((count + 1) * sizeof(char *));
 	if (!s || !(res))
 		return (NULL);
 	while (s[i])
@@ -87,6 +89,5 @@ char	**ft_split(char const *s, char c)
 				i++;
 		}
 	}
-	res[j] = NULL;
-	return (res);
+	return (res[j] = NULL, res);
 }

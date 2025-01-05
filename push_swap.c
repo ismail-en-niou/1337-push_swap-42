@@ -6,7 +6,7 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 17:29:49 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/04 11:07:54 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/05 16:09:10 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ int	process_value(t_stack **a, char **res, int j)
 {
 	long	nb;
 	t_stack	*new_node;
-
+	
+	if ((res[j][0] == '-' || res[j][0]  == '+' ) && !res[j][1] )
+		return 0;
 	nb = ft_atoi(res[j]);
 	if (!is_number(res[j]) || (nb) > INT_MAX || nb < INT_MIN)
 		return (0);
@@ -48,7 +50,7 @@ int	process_input(t_stack **a, char **av, int ac)
 	int		j;
 	char	**res;
 	int		k;
-
+	
 	i = 1;
 	while (i < ac)
 	{
@@ -57,12 +59,8 @@ int	process_input(t_stack **a, char **av, int ac)
 			return (0);
 		j = 0;
 		while (res[j])
-		{
 			if (!process_value(a, res, j++))
-			{
 				return (free_res_and_stack(res, a), 0);
-			}
-		}
 		k = 0;
 		while (res[k] != NULL)
 			free(res[k++]);

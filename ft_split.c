@@ -6,7 +6,7 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:11:25 by ien-niou          #+#    #+#             */
-/*   Updated: 2024/12/30 16:13:26 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/05 16:13:46 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,12 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 	char	**res;
+	int		count;
 
-	i = 0;
-	j = 0;
-	res = malloc((count_word(s, c) + 1) * sizeof(char *));
+	i = ((j = 0, count = count_word(s, c)), 0);
+	if (!count)
+		return (NULL);
+	res = malloc((count + 1) * sizeof(char *));
 	if (!s || !(res))
 		return (NULL);
 	while (s[i])
@@ -87,6 +89,5 @@ char	**ft_split(char const *s, char c)
 				i++;
 		}
 	}
-	res[j] = NULL;
-	return (res);
+	return (res[j] = NULL, res);
 }

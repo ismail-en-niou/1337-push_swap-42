@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_pf.c                                     :+:      :+:    :+:   */
+/*   creat_node_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 14:48:36 by ien-niou          #+#    #+#             */
-/*   Updated: 2024/11/13 14:53:27 by ien-niou         ###   ########.fr       */
+/*   Created: 2024/12/30 12:15:59 by ien-niou          #+#    #+#             */
+/*   Updated: 2025/01/05 16:39:16 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "checker_bonus.h"
 
-void	ft_putnbr_pf(int num, size_t *counter)
+t_stack	*create_node(int content)
 {
-	if (num == -2147483648)
-	{
-		ft_putnbr_pf((num / 10), counter);
-		ft_putchar_pf('8', counter);
-	}
-	else if (num < 0)
-	{
-		ft_putchar_pf('-', counter);
-		ft_putnbr_pf(-num, counter);
-	}
-	else
-	{
-		if (num > 9)
-			ft_putnbr_pf((num / 10), counter);
-		ft_putchar_pf(('0' + num % 10), counter);
-	}
+	t_stack	*new_node;
+
+	new_node = (t_stack *)malloc(sizeof(t_stack));
+	if (!new_node)
+		return (NULL);
+	new_node->content = content;
+	new_node->index = 0;
+	new_node->next = NULL;
+	return (new_node);
 }
