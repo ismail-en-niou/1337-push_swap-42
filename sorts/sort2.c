@@ -72,20 +72,21 @@ void	ft_list_handeler(t_stack **a, t_stack **b)
 	sort.min_range = 0;
 	while ((*a))
 	{
-		if ((*a)->index > sort.max_range )
-            _rotat(a,"ra");
-        else if ((*a)->index < sort.min_range)
-        {
-            _push(b,a,"pb");
-            _rotat(b,"rb");
-            sort.max_range++;
-            sort.min_range++;
-        }else if ((*a)->index >= sort.min_range && (*a)->index <= sort.max_range)
-        {
-            _push(b,a,"pb");
-            sort.max_range++;
-            sort.min_range++;
-        }
+		if ((*a)->index > sort.max_range)
+			_rotat(a, "ra");
+		else if ((*a)->index < sort.min_range)
+		{
+			_push(b, a, "pb");
+			_rotat(b, "rb");
+			sort.max_range++;
+			sort.min_range++;
+		}
+		else if ((*a)->index >= sort.min_range && (*a)->index <= sort.max_range)
+		{
+			_push(b, a, "pb");
+			sort.max_range++;
+			sort.min_range++;
+		}
 	}
 	ft_range(a, b);
 }
