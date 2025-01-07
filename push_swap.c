@@ -73,7 +73,7 @@ int	validate_input(t_stack **a, char **av, int ac)
 {
 	if (!process_input(a, av, ac) || if_allready(*a))
 	{
-		ft_printf("Error\n");
+		ft_str_fd("Error\n");
 		return (0);
 	}
 	return (!is_sorted(*a));
@@ -89,7 +89,7 @@ int	main(int ac, char *av[])
 	if (ac <= 1 || (ac == 2 && av[1][0] == '\0'))
 		return (0);
 	if (!validate_input(&a, av, ac) || is_sorted(a))
-		return (0);
+		return (1);
 	edit_index(a);
 	sort(&a, &b);
 	free_stack(&a);

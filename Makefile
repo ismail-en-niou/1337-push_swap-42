@@ -27,7 +27,7 @@ RESET = \033[0m
 SRC = creat_node.c ft_lstadd_back_bonus.c ft_putchar.c ft_putnbr_pf.c ft_putstr_pf.c \
       ft_split.c ft_atoi.c ft_printf.c ft_puthex_pf.c ft_putptr_pf.c ft_putuint_pf.c \
       ft_isallready.c ./moves/ft_moves.c ft_lstadd_front_bonus.c ./moves/ft_moves1.c \
-      ft_lstsize_bonus.c logic.c ./sorts/sort.c helpers.c ./sorts/sort2.c
+      ft_lstsize_bonus.c logic.c ./sorts/sort.c helpers.c ./sorts/sort2.c ft_putstr_fd.c
 
 OBJS = $(SRC:.c=.o)
 SW = push_swap.c

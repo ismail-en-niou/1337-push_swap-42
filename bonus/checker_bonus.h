@@ -6,7 +6,7 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 10:14:00 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/07 10:15:27 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:56:12 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "get_next_line_bonus.h"
 # include <limits.h>
 # include <stdbool.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -29,6 +28,7 @@ typedef struct s_stack
 }					t_stack;
 
 void				check_str(t_stack **a, t_stack **b, char *str);
+void				ft_str_fd(char *str);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					process_value(t_stack **a, char **res, int j);
 int					process_input(t_stack **a, char **av, int ac);

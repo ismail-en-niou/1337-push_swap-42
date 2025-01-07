@@ -6,7 +6,7 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 11:19:58 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/07 10:13:05 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/07 15:13:21 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	validate_input(t_stack **a, char **av, int ac)
 {
 	if (!process_input(a, av, ac) || if_allready(*a))
 	{
-		ft_printf("Error\n");
+		ft_str_fd("Error\n");
 		return (0);
 	}
 	return (1);
@@ -92,7 +92,7 @@ int	main(int ac, char *av[])
 	a = NULL;
 	b = NULL;
 	if (ac <= 1 || (ac == 2 && av[1][0] == '\0') || !validate_input(&a, av, ac))
-		return (0);
+		return (1);
 	while (1)
 	{
 		line = get_next_line(0);

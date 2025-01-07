@@ -30,7 +30,7 @@ SRC =	checker_bonus.c get_next_line_bonus.c get_next_line_utils_bonus.c  is_sort
 		creat_node_bonus.c ft_lstadd_back_bonus.c ft_putchar_bonus.c ft_putnbr_pf_bonus.c ft_putstr_pf_bonus.c \
       ft_split_bonus.c ft_atoi_bonus.c ft_printf_bonus.c ft_puthex_pf_bonus.c ft_putptr_pf_bonus.c ft_putuint_pf_bonus.c \
       ft_isallready_bonus.c  ft_lstadd_front_bonus.c ./moves/ft_moves_bonus.c  ./moves/ft_moves1_bonus.c \
-	  ft_lstsize_bonus.c logic_bonus.c  helpers_bonus.c test_bonus.c
+	  ft_lstsize_bonus.c logic_bonus.c  helpers_bonus.c test_bonus.c ft_putstr_fd.c
 
 OBJS = $(SRC:.c=.o)
 SW = checker_bonus.c

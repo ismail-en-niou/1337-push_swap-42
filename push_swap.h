@@ -6,7 +6,7 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 10:28:20 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/07 10:30:23 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:55:23 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct sort_list
 	int				max_range;
 	int				iter;
 }					t_sort;
+void				ft_str_fd(char *str);
+void				ft_str_fd(char *str);
 int					process_value(t_stack **a, char **res, int j);
 int					process_input(t_stack **a, char **av, int ac);
 char				**ft_split(char const *s, char c);
