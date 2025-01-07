@@ -12,20 +12,20 @@
 
 #include "../push_swap.h"
 
-int	find_min_index(t_stack *lst)
+t_stack	*find_min_index(t_stack *lst)
 {
-	int	min_index;
+	t_stack	*min_node;
 
 	if (!lst)
-		return (-1);
-	min_index = lst->index;
+		return (NULL);
+	min_node = lst;
 	while (lst)
 	{
-		if (lst->index < min_index)
-			min_index = lst->index;
+		if (lst->index < min_node->index)
+			min_node = lst;
 		lst = lst->next;
 	}
-	return (min_index);
+	return (min_node);
 }
 
 void	ft_list3(t_stack **a)
@@ -43,13 +43,19 @@ void	ft_list3(t_stack **a)
 
 void	push_min_to_b(t_stack **a, t_stack **b, int times)
 {
-	int	min_index;
+	t_stack	*min_index;
+	int		size;
 
 	while (times--)
 	{
 		min_index = find_min_index(*a);
-		while ((*a)->index != min_index)
-			_revrotate(a, "rra");
+		size = ft_lstsize(*a) / 2;
+		if (ft_lstmax_i(*a, min_index) < size + 1)
+			while ((*a)->index != min_index->index)
+				_rotat(a, "ra");
+		else
+			while ((*a)->index != min_index->index)
+				_revrotate(a, "rra");
 		_push(b, a, "pb");
 	}
 }
