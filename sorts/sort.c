@@ -49,7 +49,7 @@ void	push_min_to_b(t_stack **a, t_stack **b, int times)
 	{
 		min_index = find_min_index(*a);
 		while ((*a)->index != min_index)
-			_rotat(a, "ra");
+			_revrotate(a, "rra");
 		_push(b, a, "pb");
 	}
 }

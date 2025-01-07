@@ -51,9 +51,9 @@ void	_rotat(t_stack **head, char *msg)
 	ft_printf("%s", msg);
 }
 
-void	_ss(t_stack **a, t_stack **b ,char *msg)
+void	_ss(t_stack **a, t_stack **b, char *msg)
 {
 	_swap(a, "");
 	_swap(b, "");
-	ft_printf("%s",msg);
+	ft_printf("%s", msg);
 }

@@ -6,7 +6,7 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 11:19:58 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/05 16:39:04 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/07 10:13:05 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	process_value(t_stack **a, char **res, int j)
 	long	nb;
 	t_stack	*new_node;
 
-	if (((res[j][0] == '-' || res[j][0]  == '+' ) && !res[j][1]))
-		return 0;
+	if (((res[j][0] == '-' || res[j][0] == '+') && !res[j][1]))
+		return (0);
 	nb = ft_atoi(res[j]);
 	if (!is_number(res[j]) || (nb) > INT_MAX || nb < INT_MIN)
 		return (0);
@@ -82,30 +82,30 @@ int	validate_input(t_stack **a, char **av, int ac)
 	return (1);
 }
 
-int	main(int ac , char *av[])
+int	main(int ac, char *av[])
 {
-	char	*line = NULL;
+	char	*line;
 	t_stack	*a;
 	t_stack	*b;
+
+	line = NULL;
 	a = NULL;
 	b = NULL;
-	if (ac <= 1 || (ac == 2 && av[1][0] == '\0'))
-		return (0);
-	if (!validate_input(&a, av, ac) )
+	if (ac <= 1 || (ac == 2 && av[1][0] == '\0') || !validate_input(&a, av, ac))
 		return (0);
 	while (1)
 	{
 		line = get_next_line(0);
 		if (!line)
-			break;
-		check_str(&a,&b,line);
+			break ;
+		check_str(&a, &b, line);
 		free(line);
 	}
 	free(line);
-	if ( !ft_lstsize(b) && is_sorted(a))
-			ft_printf("OK\n");
-	else 
-		ft_printf("KO\n");	
-	free_stack(&a);	
+	if (!ft_lstsize(b) && is_sorted(a))
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
+	free_stack(&a);
 	return (0);
 }

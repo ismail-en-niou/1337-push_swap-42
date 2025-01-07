@@ -6,13 +6,19 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 11:59:57 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/05 16:41:27 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/07 10:08:31 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-void	check_str( t_stack **a, t_stack **b, char *str)
+static void	ft_exit(void)
+{
+	ft_printf("Error\n");
+	exit(2);
+}
+
+void	check_str(t_stack **a, t_stack **b, char *str)
 {
 	if (!ft_strncmp(str, "sa\n", 3))
 		_swap(a, "");
@@ -37,8 +43,5 @@ void	check_str( t_stack **a, t_stack **b, char *str)
 	else if (!ft_strncmp(str, "rrb\n", 4))
 		_revrotate(b, "");
 	else
-        {
-            ft_printf("Error\n");
-		    exit(2);
-        }
+		ft_exit();
 }

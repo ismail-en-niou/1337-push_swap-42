@@ -65,20 +65,20 @@ void	free_stack(t_stack **stack)
 	}
 }
 
-int is_empty_or_whitespace(char **str , int ac)
+int	is_empty_or_whitespace(char **str, int ac)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
-    while (i < ac)
+	while (i < ac)
 	{
 		j = 0;
 		while (str[i][j])
 		{
-			if ((str[i][j] >= 9 && str[i][j] <= 13) || str[i][j] == 32 )
+			if ((str[i][j] >= 9 && str[i][j] <= 13) || str[i][j] == 32)
 				return (0);
 		}
 	}
-    return (1);
+	return (1);
 }
