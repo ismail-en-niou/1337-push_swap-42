@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "push_swap.h"
+#include "./includes/ft_printf.h"
+#include "./includes/push_swap.h"
 
 void	free_res_and_stack(char **res, t_stack **a)
 {

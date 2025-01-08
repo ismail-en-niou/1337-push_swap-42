@@ -1,8 +1,10 @@
 {
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
+        "*.ejs": "html",
         "push_swap.h": "c",
         "checker.h": "c",
-        "checker_bonus.h": "c"
+        "checker_bonus.h": "c",
+        "unistd.h": "c"
     }
 }

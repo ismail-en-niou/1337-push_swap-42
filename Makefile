@@ -24,10 +24,10 @@ CYAN = \033[0;36m
 RESET = \033[0m
 
 
-SRC = creat_node.c ft_lstadd_back_bonus.c ft_putchar.c ft_putnbr_pf.c ft_putstr_pf.c \
-      ft_split.c ft_atoi.c ft_printf.c ft_puthex_pf.c ft_putptr_pf.c ft_putuint_pf.c \
-      ft_isallready.c ./moves/ft_moves.c ft_lstadd_front_bonus.c ./moves/ft_moves1.c \
-      ft_lstsize_bonus.c logic.c ./sorts/sort.c helpers.c ./sorts/sort2.c ft_putstr_fd.c
+SRC = ./includes/creat_node.c ./includes/ft_lstadd_back_bonus.c ./includes/ft_putchar.c ./includes/ft_putnbr_pf.c ./includes/ft_putstr_pf.c \
+      ./includes/ft_split.c ./includes/ft_atoi.c ./includes/ft_printf.c ./includes/ft_puthex_pf.c ./includes/ft_putptr_pf.c ./includes/ft_putuint_pf.c \
+      ./includes/ft_isallready.c ./moves/ft_moves.c ./includes/ft_lstadd_front_bonus.c ./moves/ft_moves1.c \
+      ./includes/ft_lstsize_bonus.c ./includes/logic.c ./sorts/sort.c ./includes/helpers.c ./sorts/sort2.c ./includes/ft_putstr_fd.c
 
 OBJS = $(SRC:.c=.o)
 SW = push_swap.c
@@ -42,7 +42,7 @@ push_swap: $(NAME) $(SW)
 	@$(CC) $(FLAGS) $(SW) $(NAME) -o push_swap
 	@echo "$(GREEN)Compilation successful!$(RESET)"
 
-%.o: %.c ft_printf.h push_swap.h
+%.o: %.c ./includes/ft_printf.h ./includes/push_swap.h
 	@$(CC) $(FLAGS) -c $< -o $@
 
 bonus: $(BONUS_FLAG)
