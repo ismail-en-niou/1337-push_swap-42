@@ -3,7 +3,7 @@
 # Function to generate a random string
 generate_random_string() {
     # Generate a random string of 8 characters (alphanumeric)
-    tr -dc 'A-Za-z0-9' </dev/urandom | head -c 8
+    tr -dc 'A-Za-z0-9adlgladgluyuyalsdcgaslvcbxbc' </dev/urandom | head -c 8
 }
 
 # Infinite loop for committing and pushing
