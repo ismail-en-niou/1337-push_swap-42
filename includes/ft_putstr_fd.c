@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-void ft_str_fd(char *str)
+void	ft_str_fd(char *str)
 {
-    int i ;
+	int	i;
 
-    i = 0;
-    while (str[i])
-    {
-        write(2,&str[i],1);
-        i++;
-    }
+	i = 0;
+	while (str[i])
+	{
+		write(2, &str[i], 1);
+		i++;
+	}
 }

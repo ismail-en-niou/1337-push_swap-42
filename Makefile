@@ -40,6 +40,7 @@ $(NAME): $(OBJS)
 
 push_swap: $(NAME) $(SW)
 	@$(CC) $(FLAGS) $(SW) $(NAME) -o push_swap
+	@rm swap.a
 	@echo "$(GREEN)Compilation successful!$(RESET)"
 
 %.o: %.c ./includes/ft_printf.h ./includes/push_swap.h
