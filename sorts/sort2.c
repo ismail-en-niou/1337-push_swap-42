@@ -6,7 +6,7 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 10:33:57 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/11 15:45:38 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/11 15:47:44 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int	max_r(t_stack *a)
 	int	max;
 
 	max = ft_lstsize(a);
-	if (max <= 15)
-		return (max * 0.048);
 	return (max * 0.048 + 10);
 }
 
