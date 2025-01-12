@@ -6,7 +6,7 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 10:14:00 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/07 13:56:12 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/12 13:01:05 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_stack
 }					t_stack;
 
 void				check_str(t_stack **a, t_stack **b, char *str);
+int					len_num(char *nb);
 void				ft_str_fd(char *str);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					process_value(t_stack **a, char **res, int j);

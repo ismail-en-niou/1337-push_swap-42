@@ -6,7 +6,7 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 11:59:57 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/07 10:08:31 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/12 12:55:22 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ void	check_str(t_stack **a, t_stack **b, char *str)
 	else if (!ft_strncmp(str, "rrb\n", 4))
 		_revrotate(b, "");
 	else
-		ft_exit(a,b,str);
+		ft_exit(a, b, str);
 }

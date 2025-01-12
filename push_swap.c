@@ -35,7 +35,8 @@ int	process_value(t_stack **a, char **res, int j)
 	if ((res[j][0] == '-' || res[j][0] == '+') && !res[j][1])
 		return (0);
 	nb = ft_atoi(res[j]);
-	if (!is_number(res[j]) || (nb) > INT_MAX || nb < INT_MIN)
+	if (!is_number(res[j]) || len_num(res[j]) > 10 
+		|| (nb) > INT_MAX || nb < INT_MIN)
 		return (0);
 	new_node = create_node(nb);
 	if (!new_node)
@@ -86,10 +87,10 @@ int	main(int ac, char *av[])
 
 	a = NULL;
 	b = NULL;
-	if (ac <= 1 || (ac == 2 && av[1][0] == '\0'))
-		return (free_stack(&a), free_stack(&b),0);
+	if (ac <= 1)
+		return (free_stack(&a), free_stack(&b), 0);
 	if (!validate_input(&a, av, ac) || is_sorted(a))
-		return (free_stack(&a),free_stack(&b),1);
+		return (free_stack(&a), free_stack(&b), 1);
 	edit_index(a);
 	sort(&a, &b);
 	free_stack(&a);

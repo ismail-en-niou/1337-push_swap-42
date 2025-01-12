@@ -6,7 +6,7 @@
 /*   By: ien-niou <ien-niou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 17:17:30 by ien-niou          #+#    #+#             */
-/*   Updated: 2025/01/05 15:10:42 by ien-niou         ###   ########.fr       */
+/*   Updated: 2025/01/12 12:59:17 by ien-niou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,17 @@ void	free_stack(t_stack **stack)
 		*stack = (*stack)->next;
 		free(temp);
 	}
+}
+
+int	len_num(char *nb)
+{
+	int	res;
+
+	res = 0;
+	while (*nb)
+	{
+		nb++;
+		res++;
+	}
+	return (res);
 }
