@@ -12,9 +12,14 @@
 
 #include "checker_bonus.h"
 
-static void	ft_exit(void)
+static void	ft_exit(t_stack **a, t_stack **b, char *str)
 {
 	ft_printf("Error\n");
+	free_stack(a);
+	free_stack(b);
+	free(str);
+	close(0);
+	get_next_line(0);
 	exit(2);
 }
 
@@ -43,5 +48,5 @@ void	check_str(t_stack **a, t_stack **b, char *str)
 	else if (!ft_strncmp(str, "rrb\n", 4))
 		_revrotate(b, "");
 	else
-		ft_exit();
+		ft_exit(a,b,str);
 }

@@ -92,7 +92,7 @@ int	main(int ac, char *av[])
 	a = NULL;
 	b = NULL;
 	if (ac <= 1 || (ac == 2 && av[1][0] == '\0') || !validate_input(&a, av, ac))
-		return (1);
+		return (free_stack(&a), free_stack(&b),1);
 	while (1)
 	{
 		line = get_next_line(0);

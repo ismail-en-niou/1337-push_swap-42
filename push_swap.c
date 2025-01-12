@@ -87,9 +87,9 @@ int	main(int ac, char *av[])
 	a = NULL;
 	b = NULL;
 	if (ac <= 1 || (ac == 2 && av[1][0] == '\0'))
-		return (0);
+		return (free_stack(&a), free_stack(&b),0);
 	if (!validate_input(&a, av, ac) || is_sorted(a))
-		return (1);
+		return (free_stack(&a),free_stack(&b),1);
 	edit_index(a);
 	sort(&a, &b);
 	free_stack(&a);

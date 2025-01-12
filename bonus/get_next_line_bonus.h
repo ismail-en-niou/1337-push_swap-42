@@ -26,7 +26,7 @@ char	*process_buffer(char *line, char *buffer, int read_byte, char **xayata);
 char	*handle_error(char **line, char **buffer, int flag);
 char	*ft_strchr(const char *s, int c);
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 1
 # endif
 
 #endif
